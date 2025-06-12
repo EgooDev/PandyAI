@@ -1264,17 +1264,6 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
         let currentChatId = null;
         let conversationHistory = [];
         const MAX_CHATS = 10; 
-        const storage = (window.websim && window.websim.metadata)
-            ? window.websim.metadata
-            : {
-                async get(key) {
-                    const data = localStorage.getItem(key);
-                    return data ? JSON.parse(data) : null;
-                },
-                async set(key, value) {
-                    localStorage.setItem(key, JSON.stringify(value));
-                }
-            };
 
         function setTheme(mode) {
             if (mode === 'light') {
@@ -1612,7 +1601,7 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${API_KEY}`,
                         'HTTP-Referer': window.location.origin,
-                        'X-Title': 'WebSim Chat'
+                        'X-Title': 'Pandy chat'
                     },
                     body: JSON.stringify({
                         model: MODEL,
@@ -1721,7 +1710,7 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${API_KEY}`,
                         'HTTP-Referer': window.location.origin,
-                        'X-Title': 'WebSim Chat'
+                        'X-Title': 'Pandy chat'
                     },
                     body: JSON.stringify({
                         model: MODEL,
@@ -1804,12 +1793,12 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
             const welcomeSecondaryEl = document.querySelector('.welcome-text-secondary');
             
             if (welcomeTextEl) {
-                const originalText = welcomeTextEl.textContent || 'An AI That *Gets* Websim';
+                const originalText = welcomeTextEl.textContent || 'Pandy, *More than AI*, a mind';
                 welcomeTextEl.innerHTML = marked.parse(originalText);
             }
             
             if (welcomeSecondaryEl) {
-                const originalText = welcomeSecondaryEl.textContent || 'Discuss your websim projects with AI';
+                const originalText = welcomeSecondaryEl.textContent || 'Discuss with best AI by Ego';
                 welcomeSecondaryEl.innerHTML = marked.parse(originalText);
             }
         }
