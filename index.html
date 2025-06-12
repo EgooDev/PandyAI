@@ -1264,6 +1264,17 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
         let currentChatId = null;
         let conversationHistory = [];
         const MAX_CHATS = 10; 
+        const storage = (window.pandy && window.pandy.metadata)
+            ? window.pandy.metadata
+            : {
+                async get(key) {
+                    const data = localStorage.getItem(key);
+                    return data ? JSON.parse(data) : null;
+                },
+                async set(key, value) {
+                    localStorage.setItem(key, JSON.stringify(value));
+                }
+            };
 
         function setTheme(mode) {
             if (mode === 'light') {
@@ -1601,7 +1612,7 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${API_KEY}`,
                         'HTTP-Referer': window.location.origin,
-                        'X-Title': 'Pandy chat'
+                        'X-Title': 'pandy Chat'
                     },
                     body: JSON.stringify({
                         model: MODEL,
@@ -1710,7 +1721,7 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${API_KEY}`,
                         'HTTP-Referer': window.location.origin,
-                        'X-Title': 'Pandy chat'
+                        'X-Title': 'pandy Chat'
                     },
                     body: JSON.stringify({
                         model: MODEL,
