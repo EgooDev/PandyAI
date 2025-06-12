@@ -24,7 +24,7 @@
 
 ###
 
-<h4 align="left">1. Go to: https://openrouter.ai/settings/keys<br>2. Create account<br>3. Generate API KEY<br>4. Copy API<br>5. Download Pandy: https://github.com/EgooDev/PandyAI/releases/download/Pandy/Pandy.-.Best.AI.by.Ego.zip<br>6. Open "config.js" and paste your API KEY<br>7. Open .html<br>8. GOOD!</h4>
+<h4 align="left">1. Go to: https://openrouter.ai/settings/keys<br>2. Create account<br>3. Generate API KEY<br>4. Copy API<br>5. Download Pandy: https://github.com/EgooDev/PandyAI/releases/download/Pandy/Pandy.-.Best.AI.by.Ego.zip<br>6. Open "config.js" and paste your API KEY<br>7. Open index.html<br>8. GOOD!</h4>
 
 ###
 
