@@ -16,7 +16,7 @@
 
 ###
 
-<h4 align="left">- 🔓 No limits, no resctrictions<br>- 💡 Fast, efficient.<br>- 🖥️ A sleek, modern, and intuitive <br>- 🚀 Generate prompt</h4>
+<h4 align="left">- 🔓 No limits, no resctrictions<br>- 💡 Fast, efficient.<br>- 🖥️ A sleek, modern, and intuitive <br>- 🚀 Generate prompt <br>- 👀 View preview on your web app <br>- 📘 Copy and Download your web app</h4>
 
 ###
 
