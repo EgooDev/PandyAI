@@ -1045,7 +1045,7 @@
             align-items: center;
             justify-content: center;
             color: #e5e5e5;
-            text-decoration: none;
+            text-decoration: none;rol
             transition: all 0.2s ease;
             font-size: 14px;
         }
@@ -1511,21 +1511,18 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
 
             const formattedTime = new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
 
-            let avatarHTML = '';
-            if (role === 'user') {
-                avatarHTML = '<img src="img/useravatar.png" alt="User Avatar">';
-            } else {
-                avatarHTML = '<img src="img/pandylogo2.png" alt="User Avatar">';
-            }
+            let avatarHTML = role === 'user'
+                ? '<img src="img/useravatar.png" alt="User Avatar">'
+                : '<img src="img/pandylogo2.png" alt="AI Avatar">';
 
             let messageContent = '';
             if (role === 'ai') {
-                messageContent = `<div class="typewriter-content"></div>
+                messageContent = `
+                    <div class="typewriter-content"></div>
                     <div class="message-timestamp">${formattedTime}</div>
                     <div class="message-actions">
                         <button class="message-action-button generate-prompt-btn">
-                            <span>✨</span>
-                            <span>Generate Prompt</span>
+                            <span>✨</span><span>Generate Prompt</span>
                         </button>
                     </div>`;
             } else {
@@ -1535,9 +1532,7 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
 
             messageEl.innerHTML = `
                 <div class="message-avatar ${role}-message-avatar">${avatarHTML}</div>
-                <div class="message-content">
-                    ${messageContent}
-                </div>
+                <div class="message-content">${messageContent}</div>
             `;
 
             chatMessages.appendChild(messageEl);
@@ -1546,10 +1541,7 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
             if (role === 'ai') {
                 const typewriterDiv = messageEl.querySelector('.typewriter-content');
                 const html = marked.parse(content);
-                let i = 0;
-                let isTag = false;
-                let tagBuffer = '';
-                let output = '';
+                let i = 0, isTag = false, tagBuffer = '', output = '';
 
                 function typeWriter() {
                     if (i < html.length) {
@@ -1570,9 +1562,10 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                         typewriterDiv.innerHTML = output + (isTag ? tagBuffer : '');
                         chatMessages.scrollTop = chatMessages.scrollHeight;
                         i++;
-                        setTimeout(typeWriter, 8); 
+                        setTimeout(typeWriter, 8);
                     } else {
                         typewriterDiv.innerHTML = html;
+
                         if (typeof window.hljs !== 'undefined') {
                             messageEl.querySelectorAll('pre code').forEach((block) => {
                                 if (typeof hljs.highlightElement === 'function') {
@@ -1588,14 +1581,57 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                                 generatePromptFromResponse(content, messageEl);
                             });
                         }
+
+                        const blocks = [...content.matchAll(/```(\w+)\s+([\s\S]*?)```/g)];
+                        blocks.forEach(([, lang, code], index) => {
+                            const actionsContainer = messageEl.querySelector('.message-actions');
+                            const codeText = code.trim();
+                            const ext = lang.toLowerCase();
+                            const filename = `Pandy - Generated code.${ext === 'html' ? 'html' : ext}`;
+
+                            const copyBtn = document.createElement('button');
+                            copyBtn.className = 'message-action-button';
+                            copyBtn.innerHTML = '<span>📋</span><span>Copy</span>';
+                            copyBtn.addEventListener('click', () => {
+                                navigator.clipboard.writeText(codeText).then(() => {
+                                    copyBtn.innerHTML = "✅ Copied";
+                                    setTimeout(() => {
+                                        copyBtn.innerHTML = '<span>📋</span><span>Copy</span>';
+                                    }, 1500);
+                                });
+                            });
+                            actionsContainer.appendChild(copyBtn);
+                            const downloadBtn = document.createElement('button');
+                            downloadBtn.className = 'message-action-button';
+                            downloadBtn.innerHTML = '<span>💾</span><span>Download</span>';
+                            downloadBtn.addEventListener('click', () => {
+                                const blob = new Blob([codeText], { type: 'text/plain' });
+                                const url = URL.createObjectURL(blob);
+                                const a = document.createElement('a');
+                                a.href = url;
+                                a.download = filename;
+                                a.click();
+                                URL.revokeObjectURL(url);
+                            });
+                            actionsContainer.appendChild(downloadBtn);
+                            if (ext === 'html') {
+                                const previewBtn = document.createElement('button');
+                                previewBtn.className = 'message-action-button';
+                                previewBtn.innerHTML = '<span>👁️</span><span>Preview</span>';
+                                previewBtn.addEventListener('click', () => {
+                                    const win = window.open();
+                                    win.document.write(codeText);
+                                    win.document.close();
+                                });
+                                actionsContainer.appendChild(previewBtn);
+                            }
+                        });
                     }
                 }
+
                 typeWriter();
-            } else {
-                chatMessages.scrollTop = chatMessages.scrollHeight;
             }
         }
-        
         async function generatePromptFromResponse(aiResponse, messageEl) {
             const contentDiv = messageEl.querySelector('.message-content');
             const generatePromptBtn = messageEl.querySelector('.generate-prompt-btn');
