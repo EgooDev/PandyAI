@@ -60,17 +60,19 @@
 
         .sidebar-header {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: space-between;
-            padding: 15px 15px;
+            gap: 12px;
+            padding: 20px 15px;
         }
+
 
         .new-chat-btn {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
-            background: linear-gradient(135deg, #141414 0%, #222222 100%);
+            background: linear-gradient(135deg, #646bd0 0%, #646bd0 100%);
             color: white;
             border: none;
             padding: 10px 16px;
@@ -85,8 +87,8 @@
 
         .new-chat-btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 4px 12px rgba(58, 63, 140, 0.4);
-            background: linear-gradient(135deg, #222222 0%, #141414 100%);
+            box-shadow: 0 4px 12px #646bd066;
+            background: linear-gradient(135deg, #646bd0 0%, #545ab0 100%);
         }
 
         .new-chat-btn:active {
@@ -142,6 +144,7 @@
             padding: 15px 15px 5px;
             text-transform: uppercase;
             font-weight: 500;
+            margin-top: 20px;
         }
 
         .sidebar-divider {
@@ -1171,7 +1174,7 @@
             
             <div id="chat-messages" class="chat-messages" style="display: none;"></div>
         </div>
-        
+
         <div class="input-container">
             <textarea class="input-field" placeholder="Talk about your project..." id="message-input"></textarea>
             
@@ -1180,7 +1183,6 @@
                     <button class="action-button" id="send-message-btn">
                         <span>Send</span>
                     </button>
-                    <div class="more-options">⋯</div>
                 </div>
                 
                 <div class="user-controls">
@@ -1361,7 +1363,6 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                     </div>
 
                     <div class="chat-item-header">
-                        <span class="icon">💬</span>
                         <span>${chat.title || 'Untitled Chat'}</span>
                         <span class="count">${dateString}</span>
                     </div>
@@ -1505,13 +1506,13 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
             );
             
             sortedMessages.forEach(message => {
-                addMessageToUI(message.role, message.content, message.created_at);
+                addMessageToUI(message.role, message.content, message.created_at, true);
             });
             
             chatMessages.scrollTop = chatMessages.scrollHeight;
         }
         
-        function addMessageToUI(role, content, timestamp = new Date()) {
+        function addMessageToUI(role, content, timestamp = new Date(), isHistorical = false) {
             const messageEl = document.createElement('div');
             messageEl.className = `message ${role}-message`;
 
@@ -1634,8 +1635,26 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                         });
                     }
                 }
+                if (!isHistorical) {
+                    typeWriter();
+                } else {
+                    typewriterDiv.innerHTML = html;
 
-                typeWriter();
+                    if (typeof window.hljs !== 'undefined') {
+                        messageEl.querySelectorAll('pre code').forEach((block) => {
+                            if (typeof hljs.highlightElement === 'function') {
+                                hljs.highlightElement(block);
+                            }
+                        });
+                    }
+                    const generatePromptBtn = messageEl.querySelector('.generate-prompt-btn');
+                    if (generatePromptBtn) {
+                        generatePromptBtn.addEventListener('click', () => {
+                            generatePromptFromResponse(content, messageEl);
+                        });
+                    }
+                }
+
             }
         }
         async function generatePromptFromResponse(aiResponse, messageEl) {
