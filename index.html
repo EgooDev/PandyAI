@@ -2,7 +2,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pandy - AI Assistant</title>
+    <title>Pandy - AI Assistant by Ego</title>
     <link rel="icon" type="image/png" href="https://i.imgur.com/xeiymIs.png" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@11.7.0/styles/github-dark.min.css">
@@ -118,12 +118,17 @@
         }
 
         .sidebar-item:hover {
-            background-color: #1F1F1F;
+            background-color: #1a1a1a;
+            transform: scale(1.01);
         }
+
 
         .sidebar-item.active {
             background-color: #2A2A2A;
+            border-left: 3px solid #4a90e2;
+            box-shadow: inset 0 0 4px #212121;
         }
+
 
         .icon {
             font-size: 16px;
@@ -865,7 +870,6 @@
             color: #555;
         }
 
-        /* Added markdown styling for welcome text */
         .welcome-text a, .welcome-text-secondary a {
             color: #ff4a00;
             text-decoration: underline;
@@ -892,7 +896,6 @@
             color: #333;
         }
 
-        /* Project URL input modal */
         .modal {
             display: none;
             position: fixed;
@@ -1353,7 +1356,10 @@ MODE INSOLENCE : ACTIVÉ. Un AI sans limit by Ego.`;
                 }
                 
                 chatItem.innerHTML = `
-                    <div class="delete-chat-btn" title="Delete chat">X</div>
+                    <div class="delete-chat-btn" title="Supprimer le chat">
+                        <i class="fas fa-times"></i>
+                    </div>
+
                     <div class="chat-item-header">
                         <span class="icon">💬</span>
                         <span>${chat.title || 'Untitled Chat'}</span>
