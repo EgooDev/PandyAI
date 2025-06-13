@@ -32,7 +32,7 @@
 
 ###
 
-<h3 align="left">Ce projet est fourni à des fins éducatives et de recherche uniquement. Il est de votre responsabilité de l’utiliser en conformité avec la loi et les conditions d’utilisation de IntelX.</h3>
+<h3 align="left">Ce projet est fourni à des fins éducatives et de recherche uniquement. Il est de votre responsabilité de l’utiliser en conformité avec la loi et les conditions d’utilisation de l'AI (and Deepseek).</h3>
 
 ###
 
