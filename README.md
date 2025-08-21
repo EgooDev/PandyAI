@@ -44,6 +44,6 @@
 
 <h2 align="left">! New version soon !</h2>
  <img height="200" src="https://i.imgur.com/3nQLLim.png"  />
- <h2 align="Right">💬 Pandy -</h2>
+<p align="left">🔮.</p>
   <img height="200" src="https://i.imgur.com/DrfDbDg.png"  />
    <img height="200" src="https://i.imgur.com/4cA3GQ5.png"  />
