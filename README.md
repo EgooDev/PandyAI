@@ -50,7 +50,10 @@
    <img height="200" src="https://i.imgur.com/4cA3GQ5.png"  />
    <p align="left">New Pandy!</p>
 
-   <p align="left">Last Update..!</p>
-   <p align="left">- Ephemeral chat</p>
-   <p align="left">- +10 Free AI Models</p>
-   <p align="left">- +10 Ui Theme</p>
+<p align="left"><strong>Last Update 🚀</strong></p>
+<ul align="left">
+  <li>💬 Ephemeral Chat</li>
+  <li>🤖 +10 Free AI Models</li>
+  <li>🎨 +10 UI Themes</li>
+</ul>
+
