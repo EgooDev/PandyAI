@@ -44,6 +44,8 @@
 
 <h2 align="left">! New version soon !</h2>
  <img height="200" src="https://i.imgur.com/3nQLLim.png"  />
-<p align="left">🔮.</p>
+ <p align="left">New interface!</p>
   <img height="200" src="https://i.imgur.com/DrfDbDg.png"  />
+  <p align="left">New models and thinking!</p>
    <img height="200" src="https://i.imgur.com/4cA3GQ5.png"  />
+   <p align="left">New Pandy!</p>
