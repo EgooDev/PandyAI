@@ -53,4 +53,4 @@
    <p align="left">Last Update..!</p>
    <p align="left">- Ephemeral chat</p>
    <p align="left">- +10 Free AI Models</p>
-   <p align="left">- +5 Ui Theme</p>
+   <p align="left">- +10 Ui Theme</p>
