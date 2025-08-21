@@ -49,3 +49,8 @@
   <p align="left">New models and thinking!</p>
    <img height="200" src="https://i.imgur.com/4cA3GQ5.png"  />
    <p align="left">New Pandy!</p>
+
+   <p align="left">Last Update..!</p>
+   <p align="left">- Ephemeral chat</p>
+   <p align="left">- +10 Free AI Models</p>
+   <p align="left">- +5 Ui Theme</p>
