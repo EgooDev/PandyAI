@@ -42,13 +42,7 @@
 
 ###
 
-<h2 align="left">! New version soon !</h2>
- <img height="200" src="https://i.imgur.com/3nQLLim.png"  />
- <p align="left">New interface!</p>
-  <img height="200" src="https://i.imgur.com/DrfDbDg.png"  />
-  <p align="left">New models and thinking!</p>
-   <img height="200" src="https://i.imgur.com/4cA3GQ5.png"  />
-   <p align="left">New Pandy!</p>
+https://github.com/user-attachments/assets/e13f4736-a8ac-4659-9f6f-3caa2b91dc72
 
 <p align="left"><strong>Last Update 🚀</strong></p>
 <ul align="left">
