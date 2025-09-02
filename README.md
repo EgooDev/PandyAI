@@ -40,6 +40,8 @@
   <img height="700" src="https://i.imgur.com/Amb9OOz.png"  />
 </div>
 
+<h2 align="center">Pandy V2 release soon!!</h2>
+
 ###
 
 https://github.com/user-attachments/assets/e13f4736-a8ac-4659-9f6f-3caa2b91dc72
