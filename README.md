@@ -51,5 +51,6 @@ https://github.com/user-attachments/assets/e13f4736-a8ac-4659-9f6f-3caa2b91dc72
   <li>💬 Ephemeral Chat</li>
   <li>🤖 +15 Free AI Models</li>
   <li>🎨 +10 UI Themes</li>
+ <li>https://github.com/EgooDev/PandyAIV2</li>
 </ul>
 
